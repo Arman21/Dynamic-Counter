@@ -1,0 +1,31 @@
+<div class="main-block">
+    <h1 class="main-title">Angular Exercises</h1>
+    <p class="current-count" [title]="countTitle" (click)="incrementDecrement()">Count : {{ newCount }}</p>
+    <p *ngIf="hiddenText1" class="message">{{ newMessage }}</p>
+    <p *ngIf="hiddenText2" class="message">{{ newMessage }}</p>
+    <button [type]="buttonType" [title]="buttonTitle1" class="button button1"
+    (click)="plusValue()" (mouseover)="addValue()" (mouseout)="stopValue()">
+        {{ buttonValue1 }}
+    </button>
+    <button [type]="buttonType" [title]="buttonTitle2" class="button button2"
+    (click)="minusValue()" (mouseover)="subValue()" (mouseout)="stopValue()">
+        {{ buttonValue2 }}
+    </button>
+    <p class="date">{{ hour }} : {{ minute }} : {{ seconds }}</p>
+    <p class="counter" [title]="countTitle">Users count : {{ userNumber }}</p>
+    <input [type]="inputType" [name]="inputName" [(ngModel)]="inputValue" class="input"
+    [placeholder]="byDefault" [title]="inputTitle" (keyup.enter)="addADiv(myInput)" 
+    (focus)="addBorder(myInput)" (blur)="subBorder(myInput)" #myInput>
+    <p class="input-text">{{ inputValue }}</p>
+    <div *ngFor="let item of checkArray;let i = index" class="newDiv">
+        <div *ngIf="hidden" [title]="information" class="innerDiv">
+            <div class="user-info">
+                User{{ i + 1 }} : name - {{ item.innerName }} , age - {{ item.innerAge }} ,
+                vocation : {{ item.innerVocation }}. 
+                <span class="fa iconX" [title]="iconTitle" (click)="deleteDiv(i)">
+                    &#xf00d;
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
